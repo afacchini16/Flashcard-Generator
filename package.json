@@ -1,0 +1,19 @@
+{
+  "name": "tony",
+  "version": "1.0.0",
+  "description": "homework 10",
+  "main": "Basic-Card.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afacchini16/Flashcard-Generator.git"
+  },
+  "author": "Tony Facchini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afacchini16/Flashcard-Generator/issues"
+  },
+  "homepage": "https://github.com/afacchini16/Flashcard-Generator#readme"
+}
