@@ -1,38 +1,45 @@
 var fs = require('fs');
 var inquirer = require('inquirer');
+module.exports = {
+    userInput: function(){
+        userInput();
+    },
+    BasicCard: BasicCard
+}
 
-
-inquirer.prompt([{
-        name: "question",
-        message: "Enter a question: "
-      },
-      {
-          name: "answer",
-          message: "Enter the answer: "
-      }
-        ]).then(function(answers){
-        // Saves the inputs in variables to be used by the subsequent functions
-        // userInputQuestion = answers.question;
-        // userInputAnswer = answers.answer;
-
-        // Checks if the user forgot to enter one or both of the fields
-        if (cardObj.inputChecker(answers.question, answers.answer)) {
-        
-            // Creates a new instance of tha BasicCard constructor
-            var newUserBasicCard = new BasicCard(answers.question, answers.answer);
-            
-            // Prints the user's inputs to the screen
-            cardObj.printToScreen(newUserBasicCard.front, newUserBasicCard.back);
-            // Updates the log.txt file with the user's inputs
-            cardObj.updateFile(newUserBasicCard.front, newUserBasicCard.back);
+function userInput(){
+    inquirer.prompt([{
+            name: "question",
+            message: "Enter a question: "
+        },
+        {
+            name: "answer",
+            message: "Enter the answer: "
         }
-});
+            ]).then(function(answers){
+            // Saves the inputs in variables to be used by the subsequent functions
+            // userInputQuestion = answers.question;
+            // userInputAnswer = answers.answer;
+
+            // Checks if the user forgot to enter one or both of the fields
+            if (cardObj.inputChecker(answers.question, answers.answer)) {
+            
+                // Creates a new instance of tha BasicCard constructor
+                var newUserBasicCard = new BasicCard(answers.question, answers.answer);
+                
+                // Prints the user's inputs to the screen
+                cardObj.printToScreen(newUserBasicCard.front, newUserBasicCard.back);
+                // Updates the log.txt file with the user's inputs
+                cardObj.updateFile(newUserBasicCard.front, newUserBasicCard.back);
+            }
+    });
+}
 
 // Constructor to make basic cards
-function BasicCard(question, answer) {
+var BasicCard = function(question, answer) {
     this.front = question;
     this.back = answer;
-}
+};
 
 var cardObj = {
     inputChecker: function(question, answer){
